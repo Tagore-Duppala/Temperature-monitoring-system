@@ -6,7 +6,6 @@ maximum_limit = 600
 
 mybolt = Bolt(conf.API_KEY, conf.DEVICE_ID)
 sms = Sms(conf.SID, conf.AUTH_TOKEN, conf.TO_NUMBER, conf.FROM_NUMBER)
-#mailer = Email(conf.MAILGUN_API_KEY, conf.SANDBOX_URL, conf.SENDER_EMAIL, conf.RECIPIENT_EMAIL)
 
 
 while True:
@@ -26,7 +25,6 @@ while True:
             mybolt.digitalWrite('1', 'HIGH')
             mybolt.digitalWrite('3', 'HIGH')   
             print("Making request to Mailgun to send an email")
-            #response = mailer.send_email("Alert", "The Current temperature sensor value is " +str(Temperature))
             response_text = json.loads(response.text)
             print("Response received from Mailgun is: " + str(response_text['message']))
     except Exception as e:
