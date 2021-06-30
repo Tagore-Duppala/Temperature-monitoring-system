@@ -24,9 +24,6 @@ while True:
             print("Status of SMS at Twilio is :" + str(response.status))
             mybolt.digitalWrite('1', 'HIGH')
             mybolt.digitalWrite('3', 'HIGH')   
-            print("Making request to Mailgun to send an email")
-            response_text = json.loads(response.text)
-            print("Response received from Mailgun is: " + str(response_text['message']))
     except Exception as e:
         print ("Error occured: Below are the details")
         print (e)
